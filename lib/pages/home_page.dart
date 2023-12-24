@@ -18,8 +18,9 @@ class HomePage extends StatelessWidget {
               'Esta será a home page!',
             ),
             const SizedBox(height: 20.0),
-            botaoCorSolida(
-                'Cinemas', () => navigateToPage(context, const CinemasPage()), Colors.deepPurple, Colors.white)
+
+            botaoCustom(context,
+                'Ir para Cinemas', () => navigateToPage(context, const CinemasPage()), Colors.deepPurple, Colors.white,true)
           ],
         ),
       ),

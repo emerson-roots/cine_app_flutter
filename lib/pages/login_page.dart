@@ -11,7 +11,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: botaoCorSolida('Logar', () => setRootPage(context, homeRootRoute), Colors.black, Colors.white),
+        child:
+            botaoCustom(context, 'LOGAR', () => setRootPage(context, homeRootRoute), Colors.black, Colors.white, true),
       ),
     );
   }

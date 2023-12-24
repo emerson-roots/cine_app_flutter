@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../helper/propriedades_globais.dart';
 
@@ -15,28 +16,30 @@ AppBar criarAppBar(String titulo) {
   );
 }
 
-Widget botaoCorSolida(String tituloBotao, Function onPressedFunc, Color corBotao, Color corTextoBotao) {
-  return ClipRRect(
-    borderRadius: BorderRadius.circular(6),
-    child: Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: Container(
-            decoration: BoxDecoration(color: corBotao),
-          ),
-        ),
-        TextButton(
-          style: TextButton.styleFrom(
-            foregroundColor: corTextoBotao,
-            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-            textStyle: const TextStyle(fontSize: 16),
-          ),
-          onPressed: () {
-            onPressedFunc();
-          },
-          child: Text(tituloBotao),
-        ),
-      ],
+ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function onPressedFunc, Color corBotao,
+    Color corTextoBotao, bool isArredondado) {
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: TextStyle(
+      fontSize: 16,
+      fontFamily: fonteNunito(context),
+    ),
+    shape: isArredondado ? StadiumBorder() : null,
+    backgroundColor: corBotao,
+  );
+
+  return ElevatedButton(
+    style: style,
+    onPressed: () {
+      onPressedFunc();
+    },
+    child: Text(
+      tituloBotao,
+      style: TextStyle(
+        color: corTextoBotao,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   );
 }
+
+

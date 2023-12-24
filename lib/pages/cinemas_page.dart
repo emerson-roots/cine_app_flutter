@@ -10,12 +10,7 @@ class CinemasPage extends StatelessWidget {
     return Scaffold(
       appBar: criarAppBar('Cinemas'),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
+        child: botaoCustom(context, 'VOLTAR', () => Navigator.pop(context), Colors.blue, Colors.white, true),
       ),
     );
   }

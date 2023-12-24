@@ -1,7 +1,9 @@
 import 'package:cine_app/pages/home_page.dart';
 import 'package:cine_app/pages/login_page.dart';
 import 'package:cine_app/services/navigation_service.dart';
+import 'package:cine_app/widgets/widgets_globais.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'helper/propriedades_globais.dart';
 
@@ -17,18 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appTitle,
-      /* theme: ThemeData(
-        fontFamily: GoogleFonts.nunito(
-          textStyle: Theme.of(context).textTheme.displayLarge,
-          fontSize: 48,
-          fontWeight: FontWeight.normal,
-          fontStyle: FontStyle.normal,
-        ).fontFamily,
-      ),*/
+      theme: ThemeData(fontFamily: fonteNunito(context)),
       home: const MyMenuHamburguerPage(title: appTitle),
       routes: <String, WidgetBuilder>{
         // Set routes for using the Navigator.
-        homeRootRoute: (BuildContext context) =>  const MyMenuHamburguerPage(title: appTitle),
+        homeRootRoute: (BuildContext context) => const MyMenuHamburguerPage(title: appTitle),
         loginRootRoute: (BuildContext context) => const LoginPage()
       },
     );
@@ -73,7 +68,7 @@ class _MyMenuHamburguerPageState extends State<MyMenuHamburguerPage> {
         // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
-           DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
               color: menuHamburgerHeaderColor,
             ),
@@ -83,14 +78,14 @@ class _MyMenuHamburguerPageState extends State<MyMenuHamburguerPage> {
             ),
           ),
           _itemMenu(context, "Home", const HomePage(), Icons.home),
-          _itemMenu(context, "Logout", null, Icons.login_outlined,true, loginRootRoute),
+          _itemMenu(context, "Logout", null, Icons.login_outlined, true, loginRootRoute),
         ],
       ),
     );
   }
 
   Widget _itemMenu(BuildContext context, String titulo, Widget? navigablePage, IconData icon,
-      [bool isRootPage = false,String? nomeRota]) {
+      [bool isRootPage = false, String? nomeRota]) {
     return ListTile(
       textColor: Colors.white,
       title: _buildButtonRow(Colors.white, icon, titulo),
