@@ -13,11 +13,12 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const appTitle = 'Home';
+  static const appTitle = '';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: appTitle,
       theme: ThemeData(fontFamily: fonteNunito(context)),
       home: const MyMenuHamburguerPage(title: appTitle),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // cores
-const Color navbarColor = Colors.black;
+const Color navbarColor = Color(0xFF1B1D1B);
 const Color menuHamburgerColor = navbarColor;
 Color menuHamburgerHeaderColor = Colors.grey.shade900;
 

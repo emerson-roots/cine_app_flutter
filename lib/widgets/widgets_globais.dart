@@ -18,11 +18,14 @@ AppBar criarAppBar(String titulo) {
 
 ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function onPressedFunc, Color corBotao,
     Color corTextoBotao, bool isArredondado) {
+  bool isExpandirHorizontalmente = false;
+
   final ButtonStyle style = ElevatedButton.styleFrom(
     textStyle: TextStyle(
       fontSize: 16,
       fontFamily: fonteNunito(context),
     ),
+    minimumSize: isExpandirHorizontalmente ? const Size.fromHeight(40) : null,
     shape: isArredondado ? StadiumBorder() : null,
     backgroundColor: corBotao,
   );
@@ -41,5 +44,3 @@ ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function on
     ),
   );
 }
-
-
