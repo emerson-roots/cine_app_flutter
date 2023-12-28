@@ -50,53 +50,54 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _conteudoDaPagina() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Bem-vindo!',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
-          ),
-          const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.only(left: 5.0, right: 5.0),
-            child: Text(
-              'Para prosseguir, selecione uma cidade ou região para carregar os cinemas de acordo com a localidade selecionada.',
-              style: TextStyle(color: Colors.white60),
-              textAlign: TextAlign.center,
+    return Padding(
+      padding: EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0, top: 10.0),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Bem-vindo!',
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
             ),
-          ),
-          const SizedBox(height: 20),
-          Lottie.asset('lib/assets/location_animation.json', height: 280),
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-                  padding: const EdgeInsets.only(left: 2.0, right: 2.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(3),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 5.0, right: 5.0),
+              child: Text(
+                'Para prosseguir, selecione uma cidade ou região para carregar os cinemas de acordo com a localidade selecionada.',
+                style: TextStyle(color: Colors.white60),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Lottie.asset('lib/assets/location_animation.json', height: 280),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(3),
+                      ),
                     ),
+                    child: Column(children: [
+                      _customSegmentedControl(),
+                      _comboboxLocalidade(),
+                    ]),
                   ),
-                  child: Column(children: [
-                    _customSegmentedControl(),
-                    _comboboxLocalidade(),
-                  ]),
-                ),
-              )
-            ],
-          ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: _botaoProximo(),
+                )
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: _botaoProximo(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -128,12 +129,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _botaoProximo() {
-
     String tituloBotao = 'PRÓXIMO';
 
     if (dropdownValue != null) {
-      return botaoCustom(context, tituloBotao, () => navigateToPage(context, const CinemasPage()), Colors.purple.shade900,
-          Colors.white, true);
+      return botaoCustom(context, tituloBotao, () => navigateToPage(context, const CinemasPage()),
+          Colors.purple.shade900, Colors.white, true);
     } else {
       return botaoCustom(
           context,

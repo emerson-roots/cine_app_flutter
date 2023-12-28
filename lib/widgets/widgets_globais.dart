@@ -17,8 +17,7 @@ AppBar criarAppBar(String titulo) {
 }
 
 ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function onPressedFunc, Color corBotao,
-    Color corTextoBotao, bool isArredondado) {
-  bool isExpandirHorizontalmente = false;
+    Color corTextoBotao, bool isArredondado, [bool isExpandirHorizontalmente = false]) {
 
   final ButtonStyle style = ElevatedButton.styleFrom(
     textStyle: TextStyle(
