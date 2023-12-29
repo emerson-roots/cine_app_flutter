@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
-
 import 'package:cine_app/helper/propriedades_globais.dart';
 import 'package:cine_app/services/navigation_service.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +76,7 @@ class _CinemasPageState extends State<CinemasPage> {
                     maxHeight: 140,
                   ),
                   color: Colors.transparent,
-                  child: _getImageCinema(primeiraFotoEmBase64),
+                  child: getImageBase64OrDefault(primeiraFotoEmBase64),
                 ),
               ),
               Column(
@@ -123,7 +121,6 @@ class _CinemasPageState extends State<CinemasPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 5),
             ],
           ),
         ),
@@ -134,28 +131,3 @@ class _CinemasPageState extends State<CinemasPage> {
     );
   }
 }
-
-Image _getImageCinema(String name) {
-  if (name.isEmpty) {
-    String diretorioFoto = 'lib/assets/cinema_criancas.jpg';
-    Image imageAsset = Image.asset(
-      diretorioFoto,
-      height: 140,
-      width: double.infinity,
-      fit: BoxFit.cover,
-    );
-    return imageAsset;
-  } else {
-    Uint8List bytesImage;
-    bytesImage = const Base64Decoder().convert(name);
-
-    Image imageMemory = Image.memory(
-      bytesImage,
-      height: 140,
-      width: double.infinity,
-      fit: BoxFit.cover,
-    );
-    return imageMemory;
-  }
-}
-

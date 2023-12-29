@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,4 +45,28 @@ ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function on
       ),
     ),
   );
+}
+
+Image getImageBase64OrDefault(String name) {
+  if (name.isEmpty) {
+    String diretorioFoto = 'lib/assets/cinema_padrao.jpg';
+    Image imageAsset = Image.asset(
+      diretorioFoto,
+      height: 140,
+      width: double.infinity,
+      fit: BoxFit.cover,
+    );
+    return imageAsset;
+  } else {
+    Uint8List bytesImage;
+    bytesImage = const Base64Decoder().convert(name);
+
+    Image imageMemory = Image.memory(
+      bytesImage,
+      height: 140,
+      width: double.infinity,
+      fit: BoxFit.cover,
+    );
+    return imageMemory;
+  }
 }
