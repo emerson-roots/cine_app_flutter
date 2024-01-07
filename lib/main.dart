@@ -3,6 +3,7 @@ import 'package:cine_app/pages/login_page.dart';
 import 'package:cine_app/services/navigation_service.dart';
 import 'package:cine_app/widgets/widgets_globais.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'helper/propriedades_globais.dart';
@@ -18,6 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: const [Locale('pt', 'BR')],
       debugShowCheckedModeBanner: false,
       title: appTitle,
       theme: ThemeData(fontFamily: fonteNunito(context)),

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../helper/propriedades_globais.dart';
+import '../services/navigation_service.dart';
 import '../widgets/widgets_globais.dart';
+import 'filme_detalhes_page.dart';
 
 class FilmesPage extends StatefulWidget {
   Cinema _cinema = Cinema();
@@ -145,7 +147,7 @@ class _FilmesPageState extends State<FilmesPage> {
         ),
       ),
       onTap: () {
-        //navigateToPage(context, FilmeDetalhePage(filme));
+        navigateToPage(context, FilmeDetalhesPage(filme));
       },
     );
   }
