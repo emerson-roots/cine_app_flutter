@@ -70,6 +70,8 @@ flutter:
    - lib/assets/oh_no_not_found.json
    - lib/assets/cinema_criancas.jpg
    - lib/assets/cinema_padrao.jpg
+   - lib/assets/movies_background.jpg
+   - lib/assets/tv_240px.png
      #- images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
