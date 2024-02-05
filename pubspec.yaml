@@ -68,6 +68,7 @@ flutter:
   assets:
    - lib/assets/location_animation.json
    - lib/assets/oh_no_not_found.json
+   - lib/assets/register.json
    - lib/assets/cinema_criancas.jpg
    - lib/assets/cinema_padrao.jpg
    - lib/assets/movies_background.jpg

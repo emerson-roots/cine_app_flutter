@@ -1,9 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import '../helper/propriedades_globais.dart';
 
 AppBar criarAppBar(String titulo) {
@@ -16,12 +13,13 @@ AppBar criarAppBar(String titulo) {
     ),
     backgroundColor: navbarColor,
     centerTitle: true,
+    shadowColor: Colors.transparent,
   );
 }
 
 ElevatedButton botaoCustom(BuildContext context, String tituloBotao, Function onPressedFunc, Color corBotao,
-    Color corTextoBotao, bool isArredondado, [bool isExpandirHorizontalmente = false]) {
-
+    Color corTextoBotao, bool isArredondado,
+    [bool isExpandirHorizontalmente = false]) {
   final ButtonStyle style = ElevatedButton.styleFrom(
     textStyle: TextStyle(
       fontSize: 16,

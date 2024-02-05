@@ -1,4 +1,5 @@
 import 'package:cine_app/helper/propriedades_globais.dart';
+import 'package:cine_app/pages/cadastro_email_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -89,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                 style: const TextStyle(color: Colors.white),
                 children: [
                   TextSpan(
-                    recognizer: TapGestureRecognizer()..onTap = () => print('TAP em CADASTRE-SE!!!'),
+                    recognizer: TapGestureRecognizer()..onTap = () => {
+                      navigateToPage(context, const CadastroEmailPage())
+                    },
                     text: 'Cadastre-se',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
@@ -132,6 +135,8 @@ class _LoginPageState extends State<LoginPage> {
         TextField(
           style: TextStyle(color: Colors.black),
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(12),
+            isDense: true,
             prefixIcon: Icon(Icons.account_circle_outlined, color: Colors.grey, size: 30),
             fillColor: Colors.white,
             filled: true,
@@ -147,10 +152,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: 20),
         TextField(
           style: TextStyle(color: Colors.black),
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(12),
+            isDense: true,
             prefixIcon: Icon(Icons.lock_outlined, color: Colors.grey, size: 30),
             suffixIcon: Icon(Icons.remove_red_eye_outlined, color: Colors.grey, size: 30),
             fillColor: Colors.white,

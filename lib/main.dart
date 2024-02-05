@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: appTitle,
       theme: ThemeData(fontFamily: fonteNunito(context)),
-      home: const MyMenuHamburguerPage(title: appTitle),
+      home: const LoginPage(),
       routes: <String, WidgetBuilder>{
         // Set routes for using the Navigator.
         homeRootRoute: (BuildContext context) => const MyMenuHamburguerPage(title: appTitle),
